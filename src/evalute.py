@@ -7,7 +7,7 @@ from utils import get_transforms, get_device
 device = get_device()
 
 # Load model
-checkpoint = torch.load("models/model.pth")
+checkpoint = torch.load("models/model_final.pth",map_location=torch.device('cpu'))
 classes = checkpoint["classes"]
 
 model = models.mobilenet_v2(pretrained=False)
@@ -17,7 +17,7 @@ model = model.to(device)
 model.eval()
 
 # Load test data
-test_dataset = datasets.ImageFolder("data/test", transform=get_transforms(False))
+test_dataset = datasets.ImageFolder("clean_data/train", transform=get_transforms(False))
 test_loader = DataLoader(test_dataset, batch_size=32)
 
 correct = 0

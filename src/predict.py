@@ -10,7 +10,7 @@ device = get_device()
 # =====================
 # LOAD MODEL
 # =====================
-checkpoint = torch.load("models/model_final.pth")
+checkpoint = torch.load("models/model_final.pth",map_location=torch.device('cpu'))
 classes = checkpoint["classes"]
 
 model = mobilenet_v2(weights=None)
@@ -22,7 +22,7 @@ model.eval()
 # =====================
 # LOAD IMAGE
 # =====================
-img_path = "src/test5.jpg"
+img_path = "test_image/test3.jpg"
 
 img = cv2.imread(img_path)
 

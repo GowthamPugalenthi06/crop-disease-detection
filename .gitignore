@@ -2,3 +2,8 @@ venv
 /venv
 data
 /data/*
+venv/
+__pycache__/
+*.pyc
+clean_data
+/clean_data
